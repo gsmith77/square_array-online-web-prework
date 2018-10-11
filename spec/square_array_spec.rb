@@ -1,16 +1,11 @@
 describe '#square_array' do
 
-  it 'does not call on collect/map or inject' do
-    numbers = [1,2,3]
-    expect(numbers).to_not receive(:collect)
-    expect(numbers).to_not receive(:map)
-    expect(numbers).to_not receive(:inject)
-    square_array(numbers)
-  end
-
-  it 'calls on each' do
+  it 'it calls on each, collect/map and inject' do
     numbers = [1,2,3]
     expect(numbers).to receive(:each)
+    expect(numbers).to receive(:collect)
+    expect(numbers).to receive(:map)
+    expect(numbers).to receive(:inject)
     square_array(numbers)
   end
 
